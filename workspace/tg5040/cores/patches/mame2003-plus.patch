@@ -1,0 +1,27 @@
+diff --git a/Makefile b/Makefile
+index 34b050e..cbd7174 100644
+--- a/Makefile
++++ b/Makefile
+@@ -541,6 +541,22 @@ else ifeq ($(platform), miyoo)
+ 	USE_CYCLONE := 1
+ 	USE_DRZ80 := 1
+ 
++# target platform tg5040 trimUI brick
++else ifeq ($(platform), tg5040)
++	TARGET := $(TARGET_NAME)_libretro.so
++	fpic := -fPIC
++	LDFLAGS += $(fpic) -shared -Wl,--version-script=link.T
++	PLATCFLAGS += -mcpu=cortex-a53 -mtune=cortex-a53 -march=armv8-a+simd
++	PLATCFLAGS += -O3 -Ofast -fomit-frame-pointer -ffast-math
++	CFLAGS += $(fpic)
++	CXXFLAGS = $(CFLAGS) -fno-rtti -fno-exceptions
++	ASFLAGS += $(CFLAGS)
++	HAVE_NEON = 1
++	ARCH = arm
++	CPU_ARCH := arm
++	ARM = 1
++
++
+ # Emscripten
+ else ifeq ($(platform), emscripten)
+ 	TARGET := $(TARGET_NAME)_libretro_$(platform).bc
