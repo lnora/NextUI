@@ -53,7 +53,7 @@ fbneo_REPO = https://github.com/libretro/FBNeo
 fbneo_CORE = fbneo_libretro.so
 fbneo_BUILD_PATH = fbneo/src/burner/libretro
 fbneo_MAKE = make
-fbneo_HASH = 6a5cc250c2db8d874a06ee86e302a2a78918b4c1
+#fbneo_HASH = 6a5cc250c2db8d874a06ee86e302a2a78918b4c1
 
 mame2003-plus_REPO = https://github.com/libretro/mame2003-plus-libretro
 mame2003-plus_CORE = mame2003_plus_libretro.so
